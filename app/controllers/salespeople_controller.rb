@@ -1,6 +1,7 @@
 class SalespeopleController < ApplicationController
   def index
-    @salespeople = Salesperson.page(params[:page]).per(10)
+    @q = Salesperson.ransack(params[:q])
+    @salespeople = @q.result(:distinct => true).includes(:chargebacks).page(params[:page]).per(10)
 
     render("salespeople/index.html.erb")
   end

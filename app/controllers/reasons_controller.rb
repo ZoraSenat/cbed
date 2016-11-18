@@ -1,6 +1,7 @@
 class ReasonsController < ApplicationController
   def index
-    @reasons = Reason.page(params[:page]).per(10)
+    @q = Reason.ransack(params[:q])
+    @reasons = @q.result(:distinct => true).includes(:chargebacks).page(params[:page]).per(10)
 
     render("reasons/index.html.erb")
   end

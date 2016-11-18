@@ -1,6 +1,7 @@
 class ChargebacksController < ApplicationController
   def index
-    @chargebacks = Chargeback.page(params[:page]).per(10)
+    @q = Chargeback.ransack(params[:q])
+    @chargebacks = @q.result(:distinct => true).includes(:user, :salesperson, :status, :reason, :credit_card).page(params[:page]).per(10)
 
     render("chargebacks/index.html.erb")
   end

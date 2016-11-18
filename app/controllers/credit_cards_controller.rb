@@ -1,6 +1,7 @@
 class CreditCardsController < ApplicationController
   def index
-    @credit_cards = CreditCard.page(params[:page]).per(10)
+    @q = CreditCard.ransack(params[:q])
+    @credit_cards = @q.result(:distinct => true).includes(:chargebacks).page(params[:page]).per(10)
 
     render("credit_cards/index.html.erb")
   end

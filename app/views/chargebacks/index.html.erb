@@ -3,6 +3,288 @@
     Chargebacks
     <a href="/chargebacks/new" class="btn btn-lg btn-success">New Chargeback</a>
   </h1>
+</div><div class="row mb-1">
+  <div class="col-md-12">
+    <%= search_form_for @q, :class => "collapse", :id => "chargebacks_filters" do |f| %>
+      <p class="lead">Narrow results:</p>
+
+        <div class="form-group">
+          <%= f.label :date_received, "Date received" %>
+          <div class="row">
+            <div class='col-md-6 mb-1'>
+              <div class='input-group date' id='date_receivedgteqPicker'>
+                  <%= f.text_field :date_received_gteq, :class => "form-control", :placeholder => "Date received greater than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+
+            <div class='col-md-6'>
+              <div class='input-group date' id='date_receivedlteqPicker'>
+                  <%= f.text_field :date_received_lteq, :class => "form-control", :placeholder => "Date received less than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+          </div>
+      </div>
+      <script type="text/javascript">
+          $(function () {
+              $('#date_receivedgteqPicker').datetimepicker({
+                  format: 'MM/DD/YYYY'
+              });
+              $('#date_receivedlteqPicker').datetimepicker({
+                  useCurrent: false,
+                  format: 'MM/DD/YYYY'
+              });
+              $('#date_receivedgteqPicker').on("dp.change", function (e) {
+                  $('#date_receivedlteqPicker').data("DateTimePicker").minDate(e.date);
+              });
+              $('#date_receivedlteqPicker').on("dp.change", function (e) {
+                  $('#date_receivedgteqPicker').data("DateTimePicker").maxDate(e.date);
+              });
+          });
+      </script>
+
+<div class="form-group">
+    <%= f.label :notes_cont, "Notes contains" %>
+    <%= f.text_field :notes_cont, :class => "form-control", :placeholder => "Notes contains" %>
+  </div>
+
+<div class="form-group">
+          <%= f.label :date_responded, "Date responded" %>
+          <div class="row">
+            <div class='col-md-6 mb-1'>
+              <div class='input-group date' id='date_respondedgteqPicker'>
+                  <%= f.text_field :date_responded_gteq, :class => "form-control", :placeholder => "Date responded greater than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+
+            <div class='col-md-6'>
+              <div class='input-group date' id='date_respondedlteqPicker'>
+                  <%= f.text_field :date_responded_lteq, :class => "form-control", :placeholder => "Date responded less than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+          </div>
+      </div>
+      <script type="text/javascript">
+          $(function () {
+              $('#date_respondedgteqPicker').datetimepicker({
+                  format: 'MM/DD/YYYY'
+              });
+              $('#date_respondedlteqPicker').datetimepicker({
+                  useCurrent: false,
+                  format: 'MM/DD/YYYY'
+              });
+              $('#date_respondedgteqPicker').on("dp.change", function (e) {
+                  $('#date_respondedlteqPicker').data("DateTimePicker").minDate(e.date);
+              });
+              $('#date_respondedlteqPicker').on("dp.change", function (e) {
+                  $('#date_respondedgteqPicker').data("DateTimePicker").maxDate(e.date);
+              });
+          });
+      </script>
+
+<div class="form-group">
+          <%= f.label :date_due, "Date due" %>
+          <div class="row">
+            <div class='col-md-6 mb-1'>
+              <div class='input-group date' id='date_duegteqPicker'>
+                  <%= f.text_field :date_due_gteq, :class => "form-control", :placeholder => "Date due greater than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+
+            <div class='col-md-6'>
+              <div class='input-group date' id='date_duelteqPicker'>
+                  <%= f.text_field :date_due_lteq, :class => "form-control", :placeholder => "Date due less than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+          </div>
+      </div>
+      <script type="text/javascript">
+          $(function () {
+              $('#date_duegteqPicker').datetimepicker({
+                  format: 'MM/DD/YYYY'
+              });
+              $('#date_duelteqPicker').datetimepicker({
+                  useCurrent: false,
+                  format: 'MM/DD/YYYY'
+              });
+              $('#date_duegteqPicker').on("dp.change", function (e) {
+                  $('#date_duelteqPicker').data("DateTimePicker").minDate(e.date);
+              });
+              $('#date_duelteqPicker').on("dp.change", function (e) {
+                  $('#date_duegteqPicker').data("DateTimePicker").maxDate(e.date);
+              });
+          });
+      </script>
+
+<div class="form-group">
+    <%= f.label :case_number_cont, "Case number contains" %>
+    <%= f.text_field :case_number_cont, :class => "form-control", :placeholder => "Case number contains" %>
+  </div>
+
+<div class="form-group">
+  <%= f.label :io, "Io" %>
+  <div class="row">
+    <div class='col-md-6 mb-1'>
+      <%= f.text_field :io_gteq, :class => "form-control", :placeholder => "Io greater than or equal to" %>
+    </div>
+    <div class='col-md-6'>
+      <%= f.text_field :io_lteq, :class => "form-control", :placeholder => "Io less than or equal to" %>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <%= f.label :amount, "Amount" %>
+  <div class="row">
+    <div class='col-md-6 mb-1'>
+      <%= f.text_field :amount_gteq, :class => "form-control", :placeholder => "Amount greater than or equal to" %>
+    </div>
+    <div class='col-md-6'>
+      <%= f.text_field :amount_lteq, :class => "form-control", :placeholder => "Amount less than or equal to" %>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+    <%= f.label :account_name_cont, "Account name contains" %>
+    <%= f.text_field :account_name_cont, :class => "form-control", :placeholder => "Account name contains" %>
+  </div>
+
+<div class="form-group">
+    <%= f.label :contact_name_cont, "Contact name contains" %>
+    <%= f.text_field :contact_name_cont, :class => "form-control", :placeholder => "Contact name contains" %>
+  </div>
+
+<div class="form-group">
+          <%= f.label :date_transacted, "Date transacted" %>
+          <div class="row">
+            <div class='col-md-6 mb-1'>
+              <div class='input-group date' id='date_transactedgteqPicker'>
+                  <%= f.text_field :date_transacted_gteq, :class => "form-control", :placeholder => "Date transacted greater than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+
+            <div class='col-md-6'>
+              <div class='input-group date' id='date_transactedlteqPicker'>
+                  <%= f.text_field :date_transacted_lteq, :class => "form-control", :placeholder => "Date transacted less than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+          </div>
+      </div>
+      <script type="text/javascript">
+          $(function () {
+              $('#date_transactedgteqPicker').datetimepicker({
+                  format: 'MM/DD/YYYY'
+              });
+              $('#date_transactedlteqPicker').datetimepicker({
+                  useCurrent: false,
+                  format: 'MM/DD/YYYY'
+              });
+              $('#date_transactedgteqPicker').on("dp.change", function (e) {
+                  $('#date_transactedlteqPicker').data("DateTimePicker").minDate(e.date);
+              });
+              $('#date_transactedlteqPicker').on("dp.change", function (e) {
+                  $('#date_transactedgteqPicker').data("DateTimePicker").maxDate(e.date);
+              });
+          });
+      </script>
+
+<div class="form-group">
+          <%= f.label :created_at, "Created at" %>
+          <div class="row">
+            <div class='col-md-6 mb-1'>
+              <div class='input-group date' id='created_atgteqPicker'>
+                  <%= f.text_field :created_at_gteq, :class => "form-control", :placeholder => "Created at greater than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+
+            <div class='col-md-6'>
+              <div class='input-group date' id='created_atlteqPicker'>
+                  <%= f.text_field :created_at_lteq, :class => "form-control", :placeholder => "Created at less than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+          </div>
+      </div>
+      <script type="text/javascript">
+          $(function () {
+              $('#created_atgteqPicker').datetimepicker({
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#created_atlteqPicker').datetimepicker({
+                  useCurrent: false,
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#created_atgteqPicker').on("dp.change", function (e) {
+                  $('#created_atlteqPicker').data("DateTimePicker").minDate(e.date);
+              });
+              $('#created_atlteqPicker').on("dp.change", function (e) {
+                  $('#created_atgteqPicker').data("DateTimePicker").maxDate(e.date);
+              });
+          });
+      </script>
+
+        <div class="form-group">
+      <%= f.label :user_email_cont, "User email contains" %>
+      <%= f.text_field :user_email_cont, :class => "form-control", :placeholder => "User email contains" %>
+    </div>
+
+<div class="form-group">
+      <%= f.label :salesperson_first_name_cont, "Salesperson first_name contains" %>
+      <%= f.text_field :salesperson_first_name_cont, :class => "form-control", :placeholder => "Salesperson first_name contains" %>
+    </div>
+
+<div class="form-group">
+      <%= f.label :status_status_cont, "Status status contains" %>
+      <%= f.text_field :status_status_cont, :class => "form-control", :placeholder => "Status status contains" %>
+    </div>
+
+<div class="form-group">
+      <%= f.label :reason_reason_cont, "Reason reason contains" %>
+      <%= f.text_field :reason_reason_cont, :class => "form-control", :placeholder => "Reason reason contains" %>
+    </div>
+
+<div class="form-group">
+      <%= f.label :credit_card_type_cont, "CreditCard type contains" %>
+      <%= f.text_field :credit_card_type_cont, :class => "form-control", :placeholder => "CreditCard type contains" %>
+    </div>
+
+      <%= f.submit :class => "btn btn-primary btn-block mb-1" %>
+
+      <a href="/chargebacks" class="btn btn-default btn-block mb-1">Clear filters</a>
+    <% end %>
+    <a class="btn btn-default btn-block mb-1" data-toggle="collapse" href="#chargebacks_filters">
+      Show Filters
+    </a>
+  </div>
 </div>
 
 <div class="row">
