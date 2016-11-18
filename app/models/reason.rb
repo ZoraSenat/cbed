@@ -1,6 +1,8 @@
 class Reason < ApplicationRecord
   # Direct associations
 
+  has_many   :chargebacks
+
   # Indirect associations
 
   # Validations
