@@ -69,7 +69,7 @@
           Credit card
         </label>
 
-        <input type="text" id="credit_card_id" name="credit_card_id" placeholder="Credit card" class="form-control" value="<%= @chargeback.credit_card_id %>">
+        <%= select_tag(:credit_card_id, options_from_collection_for_select(CreditCard.all, :id, :type, @chargeback.credit_card_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for amount -->
