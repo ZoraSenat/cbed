@@ -5,6 +5,8 @@ class Status < ApplicationRecord
 
   # Validations
 
+  validates :status, :uniqueness => true
+
   validates :status, :presence => true
 
 end
