@@ -1,0 +1,28 @@
+<div class="page-header">
+  <h1>
+    Reasons
+    <a href="/reasons/new" class="btn btn-lg btn-success">New Reason</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Reason</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @reasons.each do |reason| %>
+      <tr>
+        <td><%= reason.reason %></td>
+        <td>
+          <a href="/reasons/<%= reason.id %>" class="btn btn-primary">Show</a>
+          <a href="/reasons/<%= reason.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_reason/<%= reason.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
