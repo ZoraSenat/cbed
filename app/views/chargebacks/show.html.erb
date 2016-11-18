@@ -1,0 +1,67 @@
+<div class="page-header">
+  <h3>Chargeback #<%= @chargeback.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Date received</dt>
+      <dd><%= @chargeback.date_received %></dd>
+
+      <dt>Date transacted</dt>
+      <dd><%= @chargeback.date_transacted %></dd>
+
+      <dt>Contact name</dt>
+      <dd><%= @chargeback.contact_name %></dd>
+
+      <dt>Account name</dt>
+      <dd><%= @chargeback.account_name %></dd>
+
+      <dt>Salesperson</dt>
+      <dd><%= @chargeback.salesperson_id %></dd>
+
+      <dt>Credit card</dt>
+      <dd><%= @chargeback.credit_card_id %></dd>
+
+      <dt>Amount</dt>
+      <dd><%= @chargeback.amount %></dd>
+
+      <dt>Io</dt>
+      <dd><%= @chargeback.io %></dd>
+
+      <dt>Case number</dt>
+      <dd><%= @chargeback.case_number %></dd>
+
+      <dt>Reason</dt>
+      <dd><%= @chargeback.reason_id %></dd>
+
+      <dt>Date due</dt>
+      <dd><%= @chargeback.date_due %></dd>
+
+      <dt>Date responded</dt>
+      <dd><%= @chargeback.date_responded %></dd>
+
+      <dt>Status</dt>
+      <dd><%= @chargeback.status_id %></dd>
+
+      <dt>Notes</dt>
+      <dd><%= @chargeback.notes %></dd>
+
+      <dt>User</dt>
+      <dd><%= @chargeback.user_id %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/chargebacks" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/chargebacks/<%= @chargeback.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_chargeback/<%= @chargeback.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

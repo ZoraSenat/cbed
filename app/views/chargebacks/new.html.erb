@@ -1,0 +1,163 @@
+<!-- Validation failure messages -->
+<% if @chargeback.errors.any? %>
+  <% @chargeback.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Chargeback</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_chargeback" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for date_received -->
+      <div class="form-group">
+        <label for="date_received" class="control-label">
+          Date received
+        </label>
+
+        <input type="text" id="date_received" name="date_received" placeholder="Date received" class="form-control" value="<%= @chargeback.date_received %>">
+      </div>
+
+      <!-- Label and input for date_transacted -->
+      <div class="form-group">
+        <label for="date_transacted" class="control-label">
+          Date transacted
+        </label>
+
+        <input type="text" id="date_transacted" name="date_transacted" placeholder="Date transacted" class="form-control" value="<%= @chargeback.date_transacted %>">
+      </div>
+
+      <!-- Label and input for contact_name -->
+      <div class="form-group">
+        <label for="contact_name" class="control-label">
+          Contact name
+        </label>
+
+        <input type="text" id="contact_name" name="contact_name" placeholder="Contact name" class="form-control" value="<%= @chargeback.contact_name %>">
+      </div>
+
+      <!-- Label and input for account_name -->
+      <div class="form-group">
+        <label for="account_name" class="control-label">
+          Account name
+        </label>
+
+        <input type="text" id="account_name" name="account_name" placeholder="Account name" class="form-control" value="<%= @chargeback.account_name %>">
+      </div>
+
+      <!-- Label and input for salesperson_id -->
+      <div class="form-group">
+        <label for="salesperson_id" class="control-label">
+          Salesperson
+        </label>
+
+        <input type="text" id="salesperson_id" name="salesperson_id" placeholder="Salesperson" class="form-control" value="<%= @chargeback.salesperson_id %>">
+      </div>
+
+      <!-- Label and input for credit_card_id -->
+      <div class="form-group">
+        <label for="credit_card_id" class="control-label">
+          Credit card
+        </label>
+
+        <input type="text" id="credit_card_id" name="credit_card_id" placeholder="Credit card" class="form-control" value="<%= @chargeback.credit_card_id %>">
+      </div>
+
+      <!-- Label and input for amount -->
+      <div class="form-group">
+        <label for="amount" class="control-label">
+          Amount
+        </label>
+
+        <input type="text" id="amount" name="amount" placeholder="Amount" class="form-control" value="<%= @chargeback.amount %>">
+      </div>
+
+      <!-- Label and input for io -->
+      <div class="form-group">
+        <label for="io" class="control-label">
+          Io
+        </label>
+
+        <input type="text" id="io" name="io" placeholder="Io" class="form-control" value="<%= @chargeback.io %>">
+      </div>
+
+      <!-- Label and input for case_number -->
+      <div class="form-group">
+        <label for="case_number" class="control-label">
+          Case number
+        </label>
+
+        <input type="text" id="case_number" name="case_number" placeholder="Case number" class="form-control" value="<%= @chargeback.case_number %>">
+      </div>
+
+      <!-- Label and input for reason_id -->
+      <div class="form-group">
+        <label for="reason_id" class="control-label">
+          Reason
+        </label>
+
+        <input type="text" id="reason_id" name="reason_id" placeholder="Reason" class="form-control" value="<%= @chargeback.reason_id %>">
+      </div>
+
+      <!-- Label and input for date_due -->
+      <div class="form-group">
+        <label for="date_due" class="control-label">
+          Date due
+        </label>
+
+        <input type="text" id="date_due" name="date_due" placeholder="Date due" class="form-control" value="<%= @chargeback.date_due %>">
+      </div>
+
+      <!-- Label and input for date_responded -->
+      <div class="form-group">
+        <label for="date_responded" class="control-label">
+          Date responded
+        </label>
+
+        <input type="text" id="date_responded" name="date_responded" placeholder="Date responded" class="form-control" value="<%= @chargeback.date_responded %>">
+      </div>
+
+      <!-- Label and input for status_id -->
+      <div class="form-group">
+        <label for="status_id" class="control-label">
+          Status
+        </label>
+
+        <input type="text" id="status_id" name="status_id" placeholder="Status" class="form-control" value="<%= @chargeback.status_id %>">
+      </div>
+
+      <!-- Label and input for notes -->
+      <div class="form-group">
+        <label for="notes" class="control-label">
+          Notes
+        </label>
+
+        <textarea id="notes" name="notes" placeholder="Notes" class="form-control" rows="3"><%= @chargeback.notes %></textarea>
+      </div>
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @chargeback.user_id %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Chargeback
+      </button>
+      or
+      <a href="/chargebacks">Cancel</a>
+    </form>
+  </div>
+</div>
