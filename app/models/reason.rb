@@ -5,6 +5,8 @@ class Reason < ApplicationRecord
 
   # Validations
 
+  validates :reason, :uniqueness => true
+
   validates :reason, :presence => true
 
 end
