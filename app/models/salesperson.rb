@@ -5,4 +5,6 @@ class Salesperson < ApplicationRecord
 
   # Validations
 
+  validates :sugar_user_id, :uniqueness => true
+
 end
