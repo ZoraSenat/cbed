@@ -5,6 +5,8 @@ class Chargeback < ApplicationRecord
 
   # Validations
 
+  validates :credit_card_id, :presence => true
+
   validates :date_due, :presence => true
 
   validates :date_received, :presence => true
