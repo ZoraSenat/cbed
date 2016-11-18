@@ -1,0 +1,31 @@
+<div class="page-header">
+  <h3>Salesperson #<%= @salesperson.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>First name</dt>
+      <dd><%= @salesperson.first_name %></dd>
+
+      <dt>Last name</dt>
+      <dd><%= @salesperson.last_name %></dd>
+
+      <dt>Sugar user</dt>
+      <dd><%= @salesperson.sugar_user_id %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/salespeople" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/salespeople/<%= @salesperson.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_salesperson/<%= @salesperson.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

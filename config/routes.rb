@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Salesperson resource:
+  # CREATE
+  get "/salespeople/new", :controller => "salespeople", :action => "new"
+  post "/create_salesperson", :controller => "salespeople", :action => "create"
+
+  # READ
+  get "/salespeople", :controller => "salespeople", :action => "index"
+  get "/salespeople/:id", :controller => "salespeople", :action => "show"
+
+  # UPDATE
+  get "/salespeople/:id/edit", :controller => "salespeople", :action => "edit"
+  post "/update_salesperson/:id", :controller => "salespeople", :action => "update"
+
+  # DELETE
+  get "/delete_salesperson/:id", :controller => "salespeople", :action => "destroy"
+  #------------------------------
+
   # Routes for the Chargeback resource:
   # CREATE
   get "/chargebacks/new", :controller => "chargebacks", :action => "new"
