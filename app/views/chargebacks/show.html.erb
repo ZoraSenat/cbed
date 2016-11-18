@@ -18,10 +18,22 @@
       <dd><%= @chargeback.account_name %></dd>
 
       <dt>Salesperson</dt>
-      <dd><%= @chargeback.salesperson_id %></dd>
+      <dd>
+        <% if @chargeback.salesperson.present? %>
+          <a href="/salespeople/<%= @chargeback.salesperson_id %>">
+            <%= @chargeback.salesperson.first_name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Credit card</dt>
-      <dd><%= @chargeback.credit_card_id %></dd>
+      <dd>
+        <% if @chargeback.credit_card.present? %>
+          <a href="/credit_cards/<%= @chargeback.credit_card_id %>">
+            <%= @chargeback.credit_card.type %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Amount</dt>
       <dd><%= @chargeback.amount %></dd>
@@ -33,7 +45,13 @@
       <dd><%= @chargeback.case_number %></dd>
 
       <dt>Reason</dt>
-      <dd><%= @chargeback.reason_id %></dd>
+      <dd>
+        <% if @chargeback.reason.present? %>
+          <a href="/reasons/<%= @chargeback.reason_id %>">
+            <%= @chargeback.reason.reason %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Date due</dt>
       <dd><%= @chargeback.date_due %></dd>
@@ -42,13 +60,25 @@
       <dd><%= @chargeback.date_responded %></dd>
 
       <dt>Status</dt>
-      <dd><%= @chargeback.status_id %></dd>
+      <dd>
+        <% if @chargeback.status.present? %>
+          <a href="/statuses/<%= @chargeback.status_id %>">
+            <%= @chargeback.status.status %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Notes</dt>
       <dd><%= @chargeback.notes %></dd>
 
       <dt>User</dt>
-      <dd><%= @chargeback.user_id %></dd>
+      <dd>
+        <% if @chargeback.user.present? %>
+          <a href="/users/<%= @chargeback.user_id %>">
+            <%= @chargeback.user.email %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

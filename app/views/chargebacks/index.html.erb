@@ -33,17 +33,47 @@
         <td><%= chargeback.date_transacted %></td>
         <td><%= chargeback.contact_name %></td>
         <td><%= chargeback.account_name %></td>
-        <td><%= chargeback.salesperson.first_name %></td>
-        <td><%= chargeback.credit_card.type %></td>
+        <td>
+          <% if chargeback.salesperson.present? %>
+            <a href="/salespeople/<%= chargeback.salesperson.id %>">
+              <%= chargeback.salesperson.first_name %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if chargeback.credit_card.present? %>
+            <a href="/credit_cards/<%= chargeback.credit_card.id %>">
+              <%= chargeback.credit_card.type %>
+            </a>
+          <% end %>
+        </td>
         <td><%= chargeback.amount %></td>
         <td><%= chargeback.io %></td>
         <td><%= chargeback.case_number %></td>
-        <td><%= chargeback.reason.reason %></td>
+        <td>
+          <% if chargeback.reason.present? %>
+            <a href="/reasons/<%= chargeback.reason.id %>">
+              <%= chargeback.reason.reason %>
+            </a>
+          <% end %>
+        </td>
         <td><%= chargeback.date_due %></td>
         <td><%= chargeback.date_responded %></td>
-        <td><%= chargeback.status.status %></td>
+        <td>
+          <% if chargeback.status.present? %>
+            <a href="/statuses/<%= chargeback.status.id %>">
+              <%= chargeback.status.status %>
+            </a>
+          <% end %>
+        </td>
         <td><%= chargeback.notes %></td>
-        <td><%= chargeback.user.email %></td>
+        <td>
+          <% if chargeback.user.present? %>
+            <a href="/users/<%= chargeback.user.id %>">
+              <%= chargeback.user.email %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/chargebacks/<%= chargeback.id %>" class="btn btn-primary">Show</a>
           <a href="/chargebacks/<%= chargeback.id %>/edit" class="btn btn-warning">Edit</a>
