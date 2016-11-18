@@ -105,7 +105,7 @@
           Reason
         </label>
 
-        <input type="text" id="reason_id" name="reason_id" placeholder="Reason" class="form-control" value="<%= @chargeback.reason_id %>">
+        <%= select_tag(:reason_id, options_from_collection_for_select(Reason.all, :id, :reason, @chargeback.reason_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for date_due -->
