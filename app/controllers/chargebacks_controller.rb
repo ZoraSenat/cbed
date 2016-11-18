@@ -1,6 +1,6 @@
 class ChargebacksController < ApplicationController
   def index
-    @chargebacks = Chargeback.all
+    @chargebacks = Chargeback.page(params[:page]).per(10)
 
     render("chargebacks/index.html.erb")
   end

@@ -1,6 +1,6 @@
 class ReasonsController < ApplicationController
   def index
-    @reasons = Reason.all
+    @reasons = Reason.page(params[:page]).per(10)
 
     render("reasons/index.html.erb")
   end

@@ -1,6 +1,6 @@
 class SalespeopleController < ApplicationController
   def index
-    @salespeople = Salesperson.all
+    @salespeople = Salesperson.page(params[:page]).per(10)
 
     render("salespeople/index.html.erb")
   end

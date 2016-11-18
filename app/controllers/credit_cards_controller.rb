@@ -1,6 +1,6 @@
 class CreditCardsController < ApplicationController
   def index
-    @credit_cards = CreditCard.all
+    @credit_cards = CreditCard.page(params[:page]).per(10)
 
     render("credit_cards/index.html.erb")
   end
