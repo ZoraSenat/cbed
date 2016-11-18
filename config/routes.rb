@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "chargebacks#index"
   # Routes for the Credit_card resource:
   # CREATE
   get "/credit_cards/new", :controller => "credit_cards", :action => "new"
