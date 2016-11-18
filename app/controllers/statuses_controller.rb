@@ -6,6 +6,7 @@ class StatusesController < ApplicationController
   end
 
   def show
+    @chargeback = Chargeback.new
     @status = Status.find(params[:id])
 
     render("statuses/show.html.erb")

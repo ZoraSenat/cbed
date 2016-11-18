@@ -6,6 +6,7 @@ class ReasonsController < ApplicationController
   end
 
   def show
+    @chargeback = Chargeback.new
     @reason = Reason.find(params[:id])
 
     render("reasons/show.html.erb")

@@ -6,6 +6,7 @@ class CreditCardsController < ApplicationController
   end
 
   def show
+    @chargeback = Chargeback.new
     @credit_card = CreditCard.find(params[:id])
 
     render("credit_cards/show.html.erb")

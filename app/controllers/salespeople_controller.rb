@@ -6,6 +6,7 @@ class SalespeopleController < ApplicationController
   end
 
   def show
+    @chargeback = Chargeback.new
     @salesperson = Salesperson.find(params[:id])
 
     render("salespeople/show.html.erb")
