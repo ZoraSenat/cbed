@@ -5,4 +5,6 @@ class Reason < ApplicationRecord
 
   # Validations
 
+  validates :reason, :presence => true
+
 end
