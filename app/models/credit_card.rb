@@ -5,6 +5,8 @@ class CreditCard < ApplicationRecord
 
   # Validations
 
+  validates :type, :uniqueness => true
+
   validates :type, :presence => true
 
 end
