@@ -60,7 +60,7 @@
           Salesperson
         </label>
 
-        <input type="text" id="salesperson_id" name="salesperson_id" placeholder="Salesperson" class="form-control" value="<%= @chargeback.salesperson_id %>">
+        <%= select_tag(:salesperson_id, options_from_collection_for_select(Salesperson.all, :id, :first_name, @chargeback.salesperson_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for credit_card_id -->
