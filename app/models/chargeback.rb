@@ -1,6 +1,8 @@
 class Chargeback < ApplicationRecord
   # Direct associations
 
+  belongs_to :status
+
   belongs_to :salesperson,
              :counter_cache => true
 
