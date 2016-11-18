@@ -5,6 +5,8 @@ class Chargeback < ApplicationRecord
 
   # Validations
 
+  validates :date_due, :presence => true
+
   validates :date_received, :presence => true
 
   validates :date_transacted, :presence => true
