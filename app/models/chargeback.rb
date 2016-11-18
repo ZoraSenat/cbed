@@ -1,6 +1,8 @@
 class Chargeback < ApplicationRecord
   # Direct associations
 
+  belongs_to :credit_card
+
   belongs_to :reason
 
   belongs_to :status
