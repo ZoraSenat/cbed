@@ -5,6 +5,8 @@ class Chargeback < ApplicationRecord
 
   # Validations
 
+  validates :reason_id, :presence => true
+
   validates :salesperson_id, :presence => true
 
   validates :status_id, :presence => true
