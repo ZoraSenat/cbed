@@ -43,7 +43,7 @@
         <td><%= chargeback.date_responded %></td>
         <td><%= chargeback.status.status %></td>
         <td><%= chargeback.notes %></td>
-        <td><%= chargeback.user_id %></td>
+        <td><%= chargeback.user.email %></td>
         <td>
           <a href="/chargebacks/<%= chargeback.id %>" class="btn btn-primary">Show</a>
           <a href="/chargebacks/<%= chargeback.id %>/edit" class="btn btn-warning">Edit</a>
