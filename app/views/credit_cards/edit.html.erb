@@ -1,0 +1,46 @@
+<!-- Validation failure messages -->
+<% if @credit_card.errors.any? %>
+  <% @credit_card.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Credit Card #<%= @credit_card.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_credit_card/<%= @credit_card.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for type -->
+      <div class="form-group">
+        <label for="type" class="control-label">
+          Type
+        </label>
+
+        <input type="text" id="type" name="type" placeholder="Type" class="form-control" value="<%= @credit_card.type %>">
+      </div>
+
+      <!-- Label and input for description -->
+      <div class="form-group">
+        <label for="description" class="control-label">
+          Description
+        </label>
+
+        <textarea id="description" name="description" placeholder="Description" class="form-control" rows="3"><%= @credit_card.description %></textarea>
+      </div>
+
+      <button class="btn btn-warning">
+        Update Credit Card
+      </button>
+      or
+      <a href="/credit_cards/<%= @credit_card.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

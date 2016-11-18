@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Credit_card resource:
+  # CREATE
+  get "/credit_cards/new", :controller => "credit_cards", :action => "new"
+  post "/create_credit_card", :controller => "credit_cards", :action => "create"
+
+  # READ
+  get "/credit_cards", :controller => "credit_cards", :action => "index"
+  get "/credit_cards/:id", :controller => "credit_cards", :action => "show"
+
+  # UPDATE
+  get "/credit_cards/:id/edit", :controller => "credit_cards", :action => "edit"
+  post "/update_credit_card/:id", :controller => "credit_cards", :action => "update"
+
+  # DELETE
+  get "/delete_credit_card/:id", :controller => "credit_cards", :action => "destroy"
+  #------------------------------
+
   # Routes for the Reason resource:
   # CREATE
   get "/reasons/new", :controller => "reasons", :action => "new"
